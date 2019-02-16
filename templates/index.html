@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>WEB-PROXY</title>
+    <link href="https://feedity.com/css/default.css?v=361" rel="stylesheet" type="text/css" />
+     
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+</head>
+<body style="margin-top:100px">
+
+<div id="splashcenter">
+    <h1>Turn Websites into Instant Notifications</h1>
+    <h2>Create a Feed for any Webpage, and Publish or Follow Updates.</h2>
+    <div id="splashtext">
+      <ul>
+          <li><b>Subscribe</b>&nbsp;&nbsp;•&nbsp;&nbsp;Use for Media Monitoring and Market Intelligence</li>
+          <li><b>Publish</b>&nbsp;&nbsp;•&nbsp;&nbsp;Improve Reach and Engagement with Feeds on your Website</li>
+          <li><b>Distribute</b>&nbsp;&nbsp;•&nbsp;&nbsp;Display in Mobile Apps, Deliver Podcasts to iTunes</li>
+      </ul>      
+    </div>
+</div>
+
+<div id="page">	    
+    <div id="startedbar">
+        <div id="ctl00_Main_pnlStart" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_Main_btnPreview&#39;)">		       
+            <b>Try it out.</b>            
+            Enter the webpage URL:<br />
+            <input name="ctl00$Main$txtURL" value="http://bbs.ruliweb.com/market/board/1020" id="url" type="text" maxlength="1000" id="ctl00_Main_txtURL" class="frm startedtextbox" placeholder="http://" />
+            <input type="button" id="nextBtn" name="ctl00$Main$btnPreview" value="Preview" id="ctl00_Main_btnPreview" class="frm buttoncontrol flatbtn rounded" /><br />            
+    </div>
+</div>
+
+</body>
+<script>
+$("#nextBtn").on("click", function(){
+    var url = $("#url").val();
+
+    var parser = document.createElement('a');
+    parser.href = url;
+
+    var encodingParams = '';
+    var encodingUrl = url;
+
+    // 파라미터 url 인코딩
+    if ( parser.search ){
+        encodingParams = encodeURIComponent( parser.search.substring( 1, parser.search.length ));
+        encodingUrl = parser.origin + parser.pathname + '?' + encodingParams;
+    }
+
+    location.href = '/webproxy?url=' + encodingUrl;
+});
+</script>
+</html>
