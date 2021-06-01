@@ -13,7 +13,7 @@ pipreqs==0.4.9
 recordtype==1.1
 requests==2.18.4
 uritools==2.1.0
-urllib3==1.22
+urllib3==1.26.5
 urlparse2==1.1.1
 urlparse3==1.1
 Werkzeug==0.14.1
